@@ -8,7 +8,7 @@ const signers = await ethers.getSigners();
  const name =  "Beneficiary Name";
  const url = "beneficiaryname.org";
 // const imageURL = "https://placekitten.com/600/350";
- const imageURL = "https://github.com/davidalfredostrowski/fundraiserfactory2_test/blob/main/src/artifacts/bunkieCoin3.png";
+ const imageURL = "Pharry.png";
 
 
 

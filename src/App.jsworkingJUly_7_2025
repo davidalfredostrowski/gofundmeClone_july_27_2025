@@ -1,17 +1,19 @@
 import React,{ useState, useEffect } from 'react'
 import { ethers, BrowserProvider } from "ethers";
+import { providers } from 'ethers/providers';
 
 import { Card, CardContent } from "./components/ui/card";
 
 import FundraiserAbif from './contractsData/FundraiserFactory.json'
 import FundraiserAddressf from './contractsData/FundraiserFactory-address.json'
 import FundraiserAbi from './contractsData/Fundraiser.json'
+import FundraiserAddress from './contractsData/Fundraiser-address.json'
 
 
 function App() {
 
   const [provider, setProvider] = useState(null);
-  const [signer, setSigner] = useState(null);
+	const [signer, setSigner] = useState(null);
   const [contract, setContract] = useState(null);
   const [details, setDetails] = useState({});
   const [donationAmount, setDonationAmount] = useState("");
@@ -21,6 +23,9 @@ function App() {
   const [factory, setFactory] = useState(null);
   const [fundraisers, setFundraisers] = useState([]);
   const [form, setForm] = useState({ name: "", url: "", imageURL: "", description: "", beneficiary: "" });
+
+
+
 
   useEffect(() => {
      // Connect to Ethereum
@@ -32,36 +37,60 @@ function App() {
 
        const factoryInstance = new ethers.Contract(FundraiserAddressf.address, FundraiserAbif.abi, signer);
 
-       setSigner(signer);
-       setFactory(factoryInstance);
+    //    setProvider(prov);
+        setSigner(signer);
+        setFactory(factoryInstance);
 
-       const count = await factoryInstance.fundraisersCount();
-       const data = [];
+        const count = await factoryInstance.fundraisersCount();
+        const data = [];
+     
+console.log("count = > ",count);
 
-       for (let i = 0; i < count; i++) {
+	    for (let i = 0; i < count; i++) {
           const addr = await factoryInstance.getFundraiserAt(i);
-	  const fundraiser = new ethers.Contract(addr, FundraiserAbi.abi, signer);
+   //         const Fundraiser = await ethers.getContractFactory("Fundraiser");
+ // const fundraiser = Fundraiser.attach(addr);
+//console.log(await fundraiser.name())
+console.log("addr =" ,addr);
+
+
+
+	const fundraiser = new ethers.Contract(addr, FundraiserAbi.abi, signer);
           const name = await fundraiser.name();
           const imageURL = await fundraiser.imageURL();
-	  const description = await fundraiser.description();
+console.log("imageURL",imageURL);
+		    const description = await fundraiser.description();
           const totalDonations = await fundraiser.totalDonations();
 
           data.push({ addr, name, imageURL, description, totalDonations: ethers.formatEther(totalDonations) });
         }
         setFundraisers(data);
       }
+   // };
     initialize();
   },  [FundraiserAddressf, FundraiserAbif]);
 
 
   const createFundraiser = async () => {
-     const { name, url, imageURL, description, beneficiary } = form;
-     if (!factory || !name || !beneficiary) return;
-     const count = await factory.fundraisersCount();
+console.log("within create creatFund....");
+	  
+
+	  const { name, url, imageURL, description, beneficiary } = form;
+	  console.log("name  = ", name);
+
+
+
+	  if (!factory || !name || !beneficiary) return;
+  console.log("just before the call to create fundraiser")
+
+
+
+        const count = await factory.fundraisersCount();
 console.log("count = ",count);
-     const tx = await factory.createFundraiser(name, url, imageURL, description, signer);  // beneficiary);
-     await tx.wait();
-     window.location.reload();
+	  const tx = await factory.createFundraiser(name, url, imageURL, description, signer);  // beneficiary);
+    await tx.wait();
+    alert("Fundraiser created!");
+    window.location.reload();
   };
 
   const handleDonate = async () => {
@@ -96,6 +125,7 @@ console.log("count = ",count);
               <img src={f.imageURL} alt="Fundraiser" className="w-full h-64 object-cover" />
               <p>{f.description}</p>
               <p>Total Raised: {f.totalDonations} ETH</p>
+              <a href={`https://etherscan.io/address/${f.addr}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">View on Etherscan</a>
               <button variant="outline" onClick={() => setSelectedFundraiser(f)}>Donate to this Fundraiser</button>
 
 		</CardContent>

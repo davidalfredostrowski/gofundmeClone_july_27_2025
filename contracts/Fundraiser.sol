@@ -3,8 +3,6 @@
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-
-
 contract Fundraiser is Ownable {
     using SafeMath for uint256;
 
@@ -27,17 +25,6 @@ contract Fundraiser is Ownable {
 
     uint256 public totalDonations;
     uint256 public donationsCount;
-
-    //..    string memory _name = "me";
-    //    string memory _url = "http:";
-    //    string memory _imageURL = "junk.png";
-    //    string memory _description = "test";
-
-
-
-
-
-
 
     constructor(
         string memory _name,
