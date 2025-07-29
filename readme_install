@@ -30,9 +30,18 @@ vi hardhat.config.js
 
 
 cd contracts 
-rm Lock.sol
 
+# under: 
+ubuntu@ip-172-31-43-71:~/fund$ pwd
+/home/ubuntu/fund
+
+
+
+rm Lock.sol
 vi Fundraiser.sol
+vi FundraiserFactory.sol
+
+
 
 # double check dns
 vi src/App.js
