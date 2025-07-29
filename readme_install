@@ -164,8 +164,15 @@ contract Fundraiser is Ownable {
 
 
 
+## images for exmample as served from the react site - not externally as in Oreilly example
+## 
 
-ubuntu@ip-172-31-34-73:~/fund$ npx hardhat node --hostname ec2-34-212-243-20.us-west-2.compute.amazonaws.com
+
+ubuntu@ip-172-31-34-73:~/fund$ npx hardhat node --hostname <dns>
+
+
+####e.g.
+####ubuntu@ip-172-31-34-73:~/fund$ npx hardhat node --hostname ec2-34-212-243-20.us-west-2.compute.amazonaws.com
 
 
 npx hardhat console
