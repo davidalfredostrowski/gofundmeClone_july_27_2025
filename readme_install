@@ -356,7 +356,7 @@ undefined
 undefined
 
 >  const beneficiary = signers[1];
- const fundraisers2 = await fundraiserfactory.createFundraiser(name, url, imageURL, description,beneficiary)
+> const fundraisers1 = await fundraiserfactory.createFundraiser(name, url, imageURL, description,beneficiary)
 undefined
 > await fundraiserfactory.fundraisersCount()
 1n
