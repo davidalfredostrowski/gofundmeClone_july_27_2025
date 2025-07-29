@@ -47,6 +47,12 @@ vi FundraiserFactory.sol
 vi src/App.js
 vi src/ 
 
+ubuntu@ip-172-31-43-71:~/fund/src$ mkdir components
+ubuntu@ip-172-31-43-71:~/fund/src$ cd components
+ubuntu@ip-172-31-43-71:~/fund/src/components$ ls
+ubuntu@ip-172-31-43-71:~/fund/src/components$ mkdir ui
+ubuntu@ip-172-31-43-71:~/fund/src/components$ cd ui
+ubuntu@ip-172-31-43-71:~/fund/src/components/ui$ vi card.jsx
 
 
 # from project directory
