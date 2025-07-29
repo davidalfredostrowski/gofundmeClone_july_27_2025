@@ -12,9 +12,33 @@ npm i @openzeppelin/contracts@4.5.0
 
 
 
-npx create-react-app voting
-cd voting
+npx create-react-app fund
+cd fund
 
+
+## you can run react 'hello world' as a starting test ...
+npm start
+# set your inbound rule appropriately
+# set a tap to     <dns-from-aws-console>:3000
+# "hello world" should now show up!
+
+
+npx hardhat init
+
+# double check dns
+vi hardhat.config.js
+
+vi contracts/Fundraiser.sol
+
+# double check dns
+vi src/App.js
+vi src/ 
+
+
+
+# from project directory
+mkdir scripts       
+vi scripts/deploy.js
 
 
 
