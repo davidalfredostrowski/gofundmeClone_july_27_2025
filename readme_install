@@ -28,7 +28,11 @@ npx hardhat init
 # double check dns
 vi hardhat.config.js
 
-vi contracts/Fundraiser.sol
+
+cd contracts 
+rm Lock.sol
+
+vi Fundraiser.sol
 
 # double check dns
 vi src/App.js
