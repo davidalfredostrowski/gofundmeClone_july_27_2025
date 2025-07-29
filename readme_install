@@ -198,17 +198,6 @@ undefined
 undefined
 > const fundraiser = await contract.deploy(name,url,imageURL,description, beneficiary, owner);
 undefined
-
-
-
-
-
-> fundraiser.name()
-Promise {
-  <pending>,
-  [Symbol(async_id_symbol)]: 3416,
-  [Symbol(trigger_async_id_symbol)]: 14
-}
 > await fundraiser.name()
 'Beneficiary Name'
 > await fundraiser.url()
