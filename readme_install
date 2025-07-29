@@ -246,13 +246,13 @@ undefined
 [Function (anonymous)]
 > dates
 Result(2) [ 1749236782n, 1749236802n ]
+
 > await fundraiser.myDonations({from: signers[0]} );
 Result(2) [
-  Result(2) [ 1000000000000000000n, 1000000000000000000n ],
-  Result(2) [ 1749236782n, 1749236802n ]
+  Result(2) [ 28900000000000000n, 1000000000000000000n ],
+  Result(2) [ 1753819164n, 1753819193n ]
 ]
 >
-
 
 
 
