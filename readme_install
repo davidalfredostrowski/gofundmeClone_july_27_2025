@@ -255,6 +255,7 @@ Result(2) [
 >
 
 
+>   const newBeneficiary = signers[2];
 
 >   await fundraiser.setBeneficiary(newBeneficiary, {from: signers[0]});
 
@@ -265,15 +266,8 @@ undefined
 > actualBeneficiary
 '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC'
 >
-
->   const newBeneficiary = signers[2];  const actualBeneficiary = await fundraiser.beneficiary();
-Uncaught SyntaxError: Identifier 'newBeneficiary' has already been declared
->   const actualBeneficiary = await fundraiser.beneficiary();
-undefined
-> actualBeneficiary
+> signers[2].address
 '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC'
->
-
 
 
 vi FundraiserFactory.sol
